@@ -1,9 +1,0 @@
-NAME <- c("A", "A", "B", "B", "C", "C")
-YEAR <- c(2016, 2011, 2016, 2011, 2016, 2011)
-YEAR <- as.factor(YEAR)
-VALUE <- c(1, 4, 1, 5, 2, 8)
-DATA <- data.frame(NAME, YEAR, VALUE)
-
-ggplot(DATA, aes(x=VALUE, y=NAME)) + 
-  geom_point(size=5, aes(colour=YEAR)) +
-  geom_line(arrow = arrow(length=unit(0.30,"cm"), ends="first", type = "closed"))

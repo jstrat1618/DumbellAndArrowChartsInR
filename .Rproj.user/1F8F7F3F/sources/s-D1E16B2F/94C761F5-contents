@@ -62,7 +62,7 @@ plt <-
   dat %>%
   ggplot()+
   geom_segment(aes(x=1, xend=2, y=rank19, yend=rank20,  col=is_gsw)) +
-  xlim(0.5, 2.5)+
+  xlim(0, 3)+
   geom_text(label=dat$AKA, x=rep(2.2, num_teams), y=dat$rank20, hjust=1.1, size=3.5)+
   geom_text(label=dat$AKA, x=rep(0.9, num_teams), y=dat$rank19, hjust=1.1, size=3.5)+
   geom_point(aes(x=rep(1, num_teams), y=rank19, alpha=0.1, fill=is_gsw, col=is_gsw))+
@@ -91,5 +91,13 @@ plt +
             col='black')+
   geom_text(x=2.3, y=team_rank(15), label="2020", fontface='bold',
             col='black')+
+  annotate(geom='curve', x=0.5, xend=0.7, y=team_rank(5), yend=team_rank(3),
+           curvature = 0.3, arrow = arrow(length = unit(2, "mm")))+
+  annotate(geom = "text", x = 0.15, y = team_rank(5), 
+           label = "#3 Overall", hjust = "left")+
+  annotate(geom='curve', x=2.5, xend=2.2, y=team_rank(25), yend=team_rank(30),
+           curvature = -0.3, arrow = arrow(length = unit(2, "mm")))+
+  annotate(geom = "text", x = 2.51, y = team_rank(25), 
+           label = "#30 Overall", hjust = "left")+
   theme(axis.text.y = element_blank())
 

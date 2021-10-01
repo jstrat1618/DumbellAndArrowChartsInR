@@ -80,7 +80,7 @@ This plot better depicts the change in performance. It shows teams that had majo
 
 ### Second Method - Change in Ranking from the 2019 - 2020 Seasons
 
-Since a seed lower in numerical value is better than one with a higher value (first seed is better than second; second is better than third, and so on), this meant using the pure numerical value of the seed would indicate an upward line, and might convey stronger performance. This is why I used `factor` earlier.
+Since a seed lower in numerical value is better than one with a higher value (first seed is better than second; second is better than third, and so on), this meant using the pure numerical value of the seed would indicate an upward line, and might convey stronger performance. This is why I used `factor` earlier. I added emphasis to Golden State's decline by adding an arrow from their 2019 ranking to their 2020 ranking.
 
 ```{r}
 cpt <- "Golden State's Fall from 2019 to 2020 was steep, but there's nowhere to go but up"
@@ -89,7 +89,7 @@ plt <-
   dat %>%
   ggplot()+
   geom_segment(aes(x=1, xend=2, y=rank19, yend=rank20,  col=is_gsw)) +
-  xlim(0.5, 2.5)+
+  xlim(0, 3)+
   geom_text(label=dat$AKA, x=rep(2.2, num_teams), y=dat$rank20, hjust=1.1, size=3.5)+
   geom_text(label=dat$AKA, x=rep(0.9, num_teams), y=dat$rank19, hjust=1.1, size=3.5)+
   geom_point(aes(x=rep(1, num_teams), y=rank19, alpha=0.1, fill=is_gsw, col=is_gsw))+
@@ -116,10 +116,18 @@ plt
 Finally, I felt that it would be worthwhile to point out that the left is the 2019 season and the right is the 2020 season. I deleted the y-axis altogether since it's apparent from the title that this is rankings, and the caption also adds to the story.
 
 ```{r}
-plt + 
+plt +
   geom_text(x=0.6, y=team_rank(15), label="2019", fontface='bold',
             col='black')+
   geom_text(x=2.3, y=team_rank(15), label="2020", fontface='bold',
             col='black')+
+  annotate(geom='curve', x=0.5, xend=0.7, y=team_rank(5), yend=team_rank(3),
+           curvature = 0.3, arrow = arrow(length = unit(2, "mm")))+
+  annotate(geom = "text", x = 0.15, y = team_rank(5), 
+           label = "#3 Overall", hjust = "left")+
+  annotate(geom='curve', x=2.5, xend=2.2, y=team_rank(25), yend=team_rank(30),
+           curvature = -0.3, arrow = arrow(length = unit(2, "mm")))+
+  annotate(geom = "text", x = 2.51, y = team_rank(25), 
+           label = "#30 Overall", hjust = "left")+
   theme(axis.text.y = element_blank())
 ```

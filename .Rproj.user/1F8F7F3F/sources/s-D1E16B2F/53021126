@@ -3,7 +3,7 @@
     "path": "~/Desktop/fun_projects/dumbell_chart/dumbellChartsInR.Rmd",
     "project_path": "dumbellChartsInR.Rmd",
     "type": "r_markdown",
-    "hash": "1983098218",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1632027554243.0,
@@ -11,15 +11,15 @@
     "relative_order": 2,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "78,75",
-        "scrollLine": "76"
+        "cursorPosition": "112,3",
+        "scrollLine": "94"
     },
     "folds": "",
-    "lastKnownWriteTime": 1632080193,
+    "lastKnownWriteTime": 1632137157,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1632080193095,
+    "last_content_update": 1633110018363,
     "read_only": false,
     "read_only_alternatives": []
 }
